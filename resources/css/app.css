@@ -1,0 +1,102 @@
+/* line 1, ../scss/app.scss */
+[v-cloak] {
+  opacity: 0; }
+
+/* line 5, ../scss/app.scss */
+body, h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, .btn-simple, .alert, a, .td-name, td, button.close {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Roboto","Helvetica Neue",Arial,sans-serif;
+  font-weight: 200; }
+
+/* line 12, ../scss/app.scss */
+.form-control {
+  font-size: 14px; }
+
+/* line 16, ../scss/app.scss */
+.form-group {
+  margin-bottom: 1.5rem; }
+
+/* line 20, ../scss/app.scss */
+.btn-transparent {
+  background-color: transparent; }
+
+/* line 24, ../scss/app.scss */
+.main-panel {
+  background: rgba(203, 203, 210, 0.15);
+  min-height: 100vh; }
+
+/* line 29, ../scss/app.scss */
+.sidebar {
+  position: fixed;
+  top: 40px;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  padding: 20px 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  border-right: 1px solid #eee;
+  background-position: center center;
+  background-size: cover;
+  background-color: #399fdb; }
+  /* line 43, ../scss/app.scss */
+  .sidebar .nav-link {
+    color: #ffffff; }
+    /* line 45, ../scss/app.scss */
+    .sidebar .nav-link.active {
+      background-color: rgba(255, 255, 255, 0.15); }
+
+/* line 52, ../scss/app.scss */
+.card .image {
+  width: 100%;
+  overflow: hidden;
+  height: 260px;
+  border-radius: 4px 4px 0 0;
+  position: relative;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d; }
+  /* line 61, ../scss/app.scss */
+  .card .image img {
+    width: 100%; }
+/* line 65, ../scss/app.scss */
+.card .avatar {
+  width: 30px;
+  height: 30px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-right: 5px; }
+/* line 72, ../scss/app.scss */
+.card .title {
+  margin: 0;
+  color: #333333;
+  font-weight: 300; }
+
+/* line 80, ../scss/app.scss */
+.card-user h4.title {
+  font-size: 1.2em; }
+/* line 83, ../scss/app.scss */
+.card-user .image {
+  height: 110px; }
+  /* line 85, ../scss/app.scss */
+  .card-user .image img {
+    margin-top: -25%; }
+/* line 89, ../scss/app.scss */
+.card-user .author {
+  text-align: center;
+  text-transform: none;
+  margin-top: -70px; }
+/* line 94, ../scss/app.scss */
+.card-user .avatar {
+  width: 124px;
+  height: 124px;
+  border: 5px solid #FFFFFF;
+  position: relative;
+  margin-bottom: 15px; }
+  /* line 100, ../scss/app.scss */
+  .card-user .avatar .border-gray {
+    border-color: #EEEEEE; }
+/* line 104, ../scss/app.scss */
+.card-user .card-user .title {
+  line-height: 24px; }
