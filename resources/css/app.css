@@ -26,7 +26,22 @@ body, h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, 
   background: rgba(203, 203, 210, 0.15);
   min-height: 100vh; }
 
-/* line 29, ../scss/app.scss */
+/* line 30, ../scss/app.scss */
+.list-group.checked-list-box li > i {
+  cursor: pointer; }
+/* line 33, ../scss/app.scss */
+.list-group.checked-list-box li .fa-fw {
+  text-align: left; }
+
+/* line 48, ../scss/app.scss */
+.list-group-input {
+  border: none; }
+  /* line 50, ../scss/app.scss */
+  .list-group-input:focus {
+    outline: none;
+    color: #399fdb; }
+
+/* line 56, ../scss/app.scss */
 .sidebar {
   position: fixed;
   top: 40px;
@@ -40,14 +55,14 @@ body, h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, 
   background-position: center center;
   background-size: cover;
   background-color: #399fdb; }
-  /* line 43, ../scss/app.scss */
+  /* line 70, ../scss/app.scss */
   .sidebar .nav-link {
     color: #ffffff; }
-    /* line 45, ../scss/app.scss */
+    /* line 72, ../scss/app.scss */
     .sidebar .nav-link.active {
       background-color: rgba(255, 255, 255, 0.15); }
 
-/* line 52, ../scss/app.scss */
+/* line 79, ../scss/app.scss */
 .card .image {
   width: 100%;
   overflow: hidden;
@@ -57,46 +72,56 @@ body, h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, 
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
   transform-style: preserve-3d; }
-  /* line 61, ../scss/app.scss */
+  /* line 88, ../scss/app.scss */
   .card .image img {
     width: 100%; }
-/* line 65, ../scss/app.scss */
+/* line 92, ../scss/app.scss */
 .card .avatar {
   width: 30px;
   height: 30px;
   overflow: hidden;
   border-radius: 50%;
   margin-right: 5px; }
-/* line 72, ../scss/app.scss */
+/* line 99, ../scss/app.scss */
 .card .title {
   margin: 0;
   color: #333333;
   font-weight: 300; }
+/* line 104, ../scss/app.scss */
+.card .list-group {
+  margin: 1.25rem -1.25rem; }
+  /* line 106, ../scss/app.scss */
+  .card .list-group .list-group-item {
+    border-left: 0;
+    border-right: 0; }
+    /* line 109, ../scss/app.scss */
+    .card .list-group .list-group-item:first-child, .card .list-group .list-group-item:last-child {
+      border-radius: 0; }
 
-/* line 80, ../scss/app.scss */
+/* line 118, ../scss/app.scss */
 .card-user h4.title {
   font-size: 1.2em; }
-/* line 83, ../scss/app.scss */
+/* line 121, ../scss/app.scss */
 .card-user .image {
   height: 110px; }
-  /* line 85, ../scss/app.scss */
+  /* line 123, ../scss/app.scss */
   .card-user .image img {
     margin-top: -25%; }
-/* line 89, ../scss/app.scss */
+/* line 127, ../scss/app.scss */
 .card-user .author {
   text-align: center;
   text-transform: none;
   margin-top: -70px; }
-/* line 94, ../scss/app.scss */
+/* line 132, ../scss/app.scss */
 .card-user .avatar {
   width: 124px;
   height: 124px;
   border: 5px solid #FFFFFF;
   position: relative;
   margin-bottom: 15px; }
-  /* line 100, ../scss/app.scss */
+  /* line 138, ../scss/app.scss */
   .card-user .avatar .border-gray {
     border-color: #EEEEEE; }
-/* line 104, ../scss/app.scss */
+/* line 142, ../scss/app.scss */
 .card-user .card-user .title {
   line-height: 24px; }

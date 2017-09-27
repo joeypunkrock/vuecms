@@ -26,6 +26,33 @@ body, h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, 
     min-height: 100vh;
 }
 
+.list-group.checked-list-box li {
+  > i {
+    cursor: pointer;
+  }
+  .fa-fw {
+    text-align: left;
+  }
+  // &::before {
+  //   content: '';
+  //   display: inline-block;
+  //   vertical-align: sub;
+  //   width: 20px;
+  //   height: 20px;
+  //   border: solid 1px grey;
+  //   border-radius: 5px;
+  //   margin-right: 5px;
+  // }
+}
+
+.list-group-input {
+    border: none;
+    &:focus {
+      outline: none;
+      color: #399fdb;
+    }
+}
+
 .sidebar {
     position: fixed;
     top: 40px;
@@ -73,6 +100,17 @@ body, h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, 
       margin: 0;
       color: #333333;
       font-weight: 300;
+  }
+  .list-group {
+    margin: 1.25rem -1.25rem;
+    .list-group-item {
+      border-left: 0;
+      border-right: 0;
+      &:first-child,
+      &:last-child {
+        border-radius: 0;
+      }
+    }
   }
 }
 
