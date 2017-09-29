@@ -3,5 +3,5 @@ RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)/$ /$1 [L,R=301]
 
-RewriteRule ^$ /app/app.php [L]
-RewriteRule ^profile /app/modules/profile.php [QSA,L]
+RewriteRule ^$ /app/index.php [L]
+RewriteRule ^profile /app/profile.php [QSA,L]

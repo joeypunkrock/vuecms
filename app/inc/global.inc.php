@@ -97,6 +97,8 @@ function get_footer() { ?>
 
 		<!-- vue -->
 		<script src="https://unpkg.com/vue"></script>
+		<!-- axios -->
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 		<!-- bootstrap-vue -->
 <!-- 	<script src="//unpkg.com/babel-polyfill@latest/dist/polyfill.min.js"></script>
