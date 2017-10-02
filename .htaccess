@@ -5,5 +5,5 @@ RewriteRule ^(.*)/$ /$1 [L,R=301]
 
 #admin pages
 RewriteRule ^$ /admin/index.php [L]
-RewriteRule ^pages /admin/pages.php [QSA,L]
-RewriteRule ^profile /admin/profile.php [QSA,L]
+RewriteRule ^pages /admin/page.php [QSA,L]
+RewriteRule ^users /admin/user.php [QSA,L]

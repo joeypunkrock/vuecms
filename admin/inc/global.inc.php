@@ -62,7 +62,7 @@ function get_topNav() { ?>
 		</ul>
 		<ul class="nav float-right">
 			<li class="nav-item">
-			  <a class="nav-link" href="/profile">profile</a>
+			  <a class="nav-link" href="/users">profile</a>
 			</li>
 			<li class="nav-item">
 			  <a class="nav-link" href="#">Log out</a>
@@ -77,10 +77,10 @@ function get_sideNav() { ?>
 	<div class="col-sm-3 col-md-2 d-none d-sm-block sidebar" role="navigation">
 		<ul class="nav nav-pills flex-column pl-4 pr-4">
 			<li class="nav-item">
-				<a class="nav-link active" href="#">Overview <span class="sr-only">(current)</span></a>
+				<a class="nav-link active" href="/">Overview <span class="sr-only">(current)</span></a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="#">Reports</a>
+				<a class="nav-link" href="/pages">Pages</a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link" href="#">Analytics</a>
@@ -89,6 +89,59 @@ function get_sideNav() { ?>
 				<a class="nav-link" href="#">Export</a>
 			</li>
 		</ul>
+	</div>
+
+<?php }
+
+function get_publish_settings() { ?>
+
+	<div class="card page-edit-card">
+		<div class="card-body">
+
+			<h6 class="text-center">Publish Settings</h6>
+			<hr>
+
+			<button 
+				type="submit" 
+				class="btn btn-info btn-block btn-sm" 
+				id="submit" 
+				data-container="body" 
+				data-toggle="popover"
+				data-placement="left" 
+				data-content="Remember to save your changes!"
+				v-on:click.prevent>Save
+			</button>
+			
+			<div class="mb-4"></div>
+
+			<button 
+				type="button" 
+				class="btn btn-outline-danger btn-block btn-sm"
+				data-toggle="modal"
+				data-target="#confirm_delete_modal">Delete
+			</button>
+
+			<div class="modal fade" id="confirm_delete_modal" tabindex="-1" role="dialog" aria-labelledby="confirm_delete_modal_label" aria-hidden="true">
+			  <div class="modal-dialog modal-sm" role="document">
+			    <div class="modal-content text-center">
+			      <div class="modal-header">
+			        <h5 class="modal-title" id="confirm_delete_modal_label"><strong>DELETE PAGE</strong></h5>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			      </div>
+			      <div class="modal-body">
+			        This action cannot be undone. <br> Are you sure you want to delete?
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Go Back</button>
+			        <button type="button" class="btn btn-outline-danger">Confirm Delete</button>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+
+		</div>
 	</div>
 
 <?php }

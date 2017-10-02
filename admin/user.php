@@ -21,7 +21,9 @@ get_sideNav();
 							  <h4 class="card-title">Edit Profile</h4>
 
 							  <form class="pt-2 editor">
+
 							    <div class="form-row">
+
 							    	<div class="form-group col-md-4">
 						    			<label for="user_company">Company <small>(Disabled)</small></label>
 						    			<input type="text" class="form-control" id="user_company" placeholder="First Name" value="ATTAIN Digital" readonly>
@@ -34,8 +36,11 @@ get_sideNav();
 										<label for="user_email">Email Address</label>
 										<input type="text" class="form-control" id="user_email" placeholder="Email Address" v-model.lazy="user_email">
 							    	</div>
+
 							    </div>
+
 						        <div class="form-row">
+
 						    		<div class="form-group col">
 					    				<label for="user_firstName">First Name</label>
 					    				<input type="text" class="form-control" id="user_firstName" placeholder="First Name" v-model.lazy="user_firstName">
@@ -44,7 +49,9 @@ get_sideNav();
 					    				<label for="user_lastName">Last Name</label>
 					    				<input type="text" class="form-control" id="user_lastName" placeholder="Last Name" v-model.lazy="user_lastName">
 						        	</div>
+
 						        </div>
+
 						        <button 
 						        	type="submit" 
 						        	class="btn btn-info pull-right" 
@@ -53,8 +60,9 @@ get_sideNav();
 						        	data-toggle="popover" 
 						        	data-placement="left" 
 						        	data-content="Remember to save your changes!"
-						        	v-on:click.prevent="update">Update Profile</button>
-						        <div class="clearfix"></div>
+						        	v-on:click.prevent="update">Update Profile
+						        </button>
+
 							  </form>
 
 							</div>
@@ -106,13 +114,16 @@ get_footer();
 ?>
 
 <script>
-	let userInfo = new Vue({
+	let user_info = new Vue({
 	  el: '#userInfo',
 	  data: {
 	    user_username: 'joey_attain',
 	    user_firstName: 'Joey',
 	    user_lastName: 'Thomas',
 	    user_email: 'joey.thomas@attain.uk.com'
+	  },
+	  created() {
+	  	console.log(this.user_email);
 	  }
 	});
 </script>
