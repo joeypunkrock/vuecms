@@ -1,17 +1,22 @@
 <?php
+require_once($_SERVER['DOCUMENT_ROOT'] . '/settings.php');
 
-$doc_root = $_SERVER['DOCUMENT_ROOT'];
-require_once($doc_root.'/db-connect.php');
+// echo ('admin path: ' . ADMIN_PATH . '<br>');
+// echo ('project path: ' . PROJECT_PATH . '<br>');
+// echo ('public path: ' . PUBLIC_PATH . '<br>');
+//die();
 
 function get_header() { 
-	global	$conn ?>
+	global	$conn;
+	$page_title = isset($page_title) ? $page_title : 'Admin Panel';
+	?>
 
 	<!doctype html>
 
 	<html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>Vue CMS</title>
+		<title>Vue - <?php echo $page_title; ?></title>
 
 		<!-- bootstrap-vue -->
 <!-- 	<link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap@next/dist/css/bootstrap.min.css"/>
@@ -19,9 +24,14 @@ function get_header() {
 	
 		<!-- boostrap -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-
+		
+		<!-- font awesome -->
 		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-		<link rel="stylesheet" href="/resources/css/app.css">
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-notify/0.2.0/css/bootstrap-notify.min.css" integrity="sha256-xs2k744k81ISIOyl14txiKpaRncakLx29JiAve4063w=" crossorigin="anonymous" />
+
+		<!-- app -->
+		<link rel="stylesheet" href="/admin/resources/css/app.css">
 
 	</head>
 
@@ -89,6 +99,7 @@ function get_footer() { ?>
 			</div> <!-- /row -->
 		</div> <!-- container-fluid -->
 
+
 		<!-- jQuery -->
 		<script
 		  src="https://code.jquery.com/jquery-3.2.1.min.js"
@@ -110,7 +121,13 @@ function get_footer() { ?>
 		<!-- bootstrap -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 
-	 	<script src="/app/app.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-notify/0.2.0/js/bootstrap-notify.min.js" integrity="sha256-x9MuLegVJYbuND9ufn0Ji5PAoT0FKFt8S5PBPWyuROM=" crossorigin="anonymous"></script>
+
+	 	<script src="/admin/app.js"></script>
+
+	 	<script>
+	 		const module = '/admin/modules/';
+	 	</script>
 
 	</body>
 	</html>

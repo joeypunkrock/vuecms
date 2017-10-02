@@ -1,47 +1,47 @@
-/* line 1, ../scss/app.scss */
+/* line 44, ../scss/app.scss */
 [v-cloak] {
   opacity: 0; }
 
-/* line 5, ../scss/app.scss */
+/* line 48, ../scss/app.scss */
 body, h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, .btn-simple, .alert, a, .td-name, td, button.close {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   font-family: "Roboto","Helvetica Neue",Arial,sans-serif;
   font-weight: 200; }
 
-/* line 12, ../scss/app.scss */
+/* line 55, ../scss/app.scss */
 .form-control {
   font-size: 14px; }
 
-/* line 16, ../scss/app.scss */
+/* line 59, ../scss/app.scss */
 .form-group {
   margin-bottom: 1.5rem; }
 
-/* line 20, ../scss/app.scss */
+/* line 63, ../scss/app.scss */
 .btn-transparent {
   background-color: transparent; }
 
-/* line 24, ../scss/app.scss */
+/* line 67, ../scss/app.scss */
 .main-panel {
   background: rgba(203, 203, 210, 0.15);
   min-height: 100vh; }
 
-/* line 30, ../scss/app.scss */
+/* line 73, ../scss/app.scss */
 .list-group.checked-list-box li > i {
   cursor: pointer; }
-/* line 33, ../scss/app.scss */
+/* line 76, ../scss/app.scss */
 .list-group.checked-list-box li .fa-fw {
   text-align: left; }
 
-/* line 48, ../scss/app.scss */
+/* line 91, ../scss/app.scss */
 .list-group-input {
   border: none; }
-  /* line 50, ../scss/app.scss */
+  /* line 93, ../scss/app.scss */
   .list-group-input:focus {
     outline: none;
     color: #399fdb; }
 
-/* line 56, ../scss/app.scss */
+/* line 99, ../scss/app.scss */
 .sidebar {
   position: fixed;
   top: 40px;
@@ -55,14 +55,14 @@ body, h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, 
   background-position: center center;
   background-size: cover;
   background-color: #399fdb; }
-  /* line 70, ../scss/app.scss */
+  /* line 113, ../scss/app.scss */
   .sidebar .nav-link {
     color: #ffffff; }
-    /* line 72, ../scss/app.scss */
+    /* line 115, ../scss/app.scss */
     .sidebar .nav-link.active {
       background-color: rgba(255, 255, 255, 0.15); }
 
-/* line 79, ../scss/app.scss */
+/* line 122, ../scss/app.scss */
 .card .image {
   width: 100%;
   overflow: hidden;
@@ -72,56 +72,56 @@ body, h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, 
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
   transform-style: preserve-3d; }
-  /* line 88, ../scss/app.scss */
+  /* line 131, ../scss/app.scss */
   .card .image img {
     width: 100%; }
-/* line 92, ../scss/app.scss */
+/* line 135, ../scss/app.scss */
 .card .avatar {
   width: 30px;
   height: 30px;
   overflow: hidden;
   border-radius: 50%;
   margin-right: 5px; }
-/* line 99, ../scss/app.scss */
+/* line 142, ../scss/app.scss */
 .card .title {
   margin: 0;
   color: #333333;
   font-weight: 300; }
-/* line 104, ../scss/app.scss */
+/* line 147, ../scss/app.scss */
 .card .list-group {
   margin: 1.25rem -1.25rem; }
-  /* line 106, ../scss/app.scss */
+  /* line 149, ../scss/app.scss */
   .card .list-group .list-group-item {
     border-left: 0;
     border-right: 0; }
-    /* line 109, ../scss/app.scss */
+    /* line 152, ../scss/app.scss */
     .card .list-group .list-group-item:first-child, .card .list-group .list-group-item:last-child {
       border-radius: 0; }
 
-/* line 118, ../scss/app.scss */
+/* line 161, ../scss/app.scss */
 .card-user h4.title {
   font-size: 1.2em; }
-/* line 121, ../scss/app.scss */
+/* line 164, ../scss/app.scss */
 .card-user .image {
   height: 110px; }
-  /* line 123, ../scss/app.scss */
+  /* line 166, ../scss/app.scss */
   .card-user .image img {
     margin-top: -25%; }
-/* line 127, ../scss/app.scss */
+/* line 170, ../scss/app.scss */
 .card-user .author {
   text-align: center;
   text-transform: none;
   margin-top: -70px; }
-/* line 132, ../scss/app.scss */
+/* line 175, ../scss/app.scss */
 .card-user .avatar {
   width: 124px;
   height: 124px;
   border: 5px solid #FFFFFF;
   position: relative;
   margin-bottom: 15px; }
-  /* line 138, ../scss/app.scss */
+  /* line 181, ../scss/app.scss */
   .card-user .avatar .border-gray {
     border-color: #EEEEEE; }
-/* line 142, ../scss/app.scss */
+/* line 185, ../scss/app.scss */
 .card-user .card-user .title {
   line-height: 24px; }

@@ -1,3 +1,46 @@
+@import 'partials/variables';
+@import 'partials/mixins';
+@import 'partials/functions';
+@import 'partials/typography';
+
+@import "modules/animations";
+@import "modules/forms";
+@import "modules/buttons";
+
+// Extra small devices (portrait phones, less than 576px)
+@import "breakpoints/base";
+
+// Small devices (landscape phones, 576px and up)
+@media only screen and (min-width: 576px) {
+  @import "breakpoints/small";
+}
+
+// Medium devices (tablets, 768px and up)
+@media only screen and (min-width: 768px) {
+  @import "breakpoints/medium";
+}
+
+// Large devices (desktops, 992px and up)
+@media only screen and (min-width: 992px) {
+  @import "breakpoints/large";
+}
+
+// RETINA (2x RESOLUTION DEVICES)
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+       only screen and (min--moz-device-pixel-ratio: 1.5),
+       only screen and (min-device-pixel-ratio: 1.5) {
+  @import "breakpoints/2x";
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media only screen and (min-width: 1200px) {
+  @import "breakpoints/xlarge";
+}
+
+@media print {
+  @import "partials/print";
+}
+
 [v-cloak] {
 	opacity: 0;
 }

@@ -1,6 +1,5 @@
 <?php
-$doc_root = $_SERVER['DOCUMENT_ROOT'];
-require_once($doc_root.'/app/inc/global.inc.php');
+require_once('inc/global.inc.php');
 get_header();
 get_sideNav();
 ?>
@@ -29,21 +28,21 @@ get_sideNav();
 							    	</div>
 									<div class="form-group col-md-4">
 										<label for="user_username">Username</label>
-										<input type="text" class="form-control" id="user_username" placeholder="Username" v-model="user_username">
+										<input type="text" class="form-control" id="user_username" placeholder="Username" v-model.lazy="user_username">
 									</div>
 							    	<div class="form-group col-md-4">
 										<label for="user_email">Email Address</label>
-										<input type="text" class="form-control" id="user_email" placeholder="Email Address" v-model="user_email">
+										<input type="text" class="form-control" id="user_email" placeholder="Email Address" v-model.lazy="user_email">
 							    	</div>
 							    </div>
 						        <div class="form-row">
 						    		<div class="form-group col">
 					    				<label for="user_firstName">First Name</label>
-					    				<input type="text" class="form-control" id="user_firstName" placeholder="First Name" v-model="user_firstName">
+					    				<input type="text" class="form-control" id="user_firstName" placeholder="First Name" v-model.lazy="user_firstName">
 						    		</div>
 						        	<div class="form-group col">
 					    				<label for="user_lastName">Last Name</label>
-					    				<input type="text" class="form-control" id="user_lastName" placeholder="Last Name" v-model="user_lastName">
+					    				<input type="text" class="form-control" id="user_lastName" placeholder="Last Name" v-model.lazy="user_lastName">
 						        	</div>
 						        </div>
 						        <button 

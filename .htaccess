@@ -3,5 +3,7 @@ RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)/$ /$1 [L,R=301]
 
-RewriteRule ^$ /app/index.php [L]
-RewriteRule ^profile /app/profile.php [QSA,L]
+#admin pages
+RewriteRule ^$ /admin/index.php [L]
+RewriteRule ^pages /admin/pages.php [QSA,L]
+RewriteRule ^profile /admin/profile.php [QSA,L]
