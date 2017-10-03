@@ -4,6 +4,6 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)/$ /$1 [L,R=301]
 
 #admin pages
-RewriteRule ^$ /admin/index.php [L]
-RewriteRule ^pages /admin/page.php [QSA,L]
-RewriteRule ^users /admin/user.php [QSA,L]
+RewriteRule ^$ /admin/display/index.php [L]
+RewriteRule ^pages /admin/display/page.php [QSA,L]
+RewriteRule ^users /admin/display/user.php [QSA,L]

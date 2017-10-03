@@ -9,7 +9,6 @@ relative_assets = true
 
 output_style = :nested
 
-# relative_assets = true
 line_comments = true
 
 preferred_syntax = :scss

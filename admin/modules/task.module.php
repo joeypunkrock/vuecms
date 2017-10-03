@@ -44,7 +44,6 @@ if (isset($_POST['upd_checked'])) {
 	$sql = "UPDATE tbl_tasks SET checked = '$checked' WHERE id = '$id'";
     $upd_checked = mysqli_query($conn,$sql);
 	mysqli_close($conn);
-    //mysqli_free_result($upd_checked);
 
     echo json_encode($sql);
 	exit();
@@ -122,6 +121,7 @@ if (isset($_POST['upd_text'])) {
 				axios.post(module+'task.module.php', { upd_checked: todo_info })
 				    .then(response => {
 				        console.log(response.data);
+				        moduleUpdated('Task', '');
 				    })
 				    .catch(error => {
 				    	console.log('err');
@@ -140,6 +140,7 @@ if (isset($_POST['upd_text'])) {
 				axios.post(module+'task.module.php', { upd_text: todo_info })
 				    .then(response => {
 				        console.log(response.data);
+				        moduleUpdated('Task', '');
 				    })
 				    .catch(error => {
 				    	console.log('err');
