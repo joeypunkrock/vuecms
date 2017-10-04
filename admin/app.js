@@ -12,7 +12,7 @@ function moduleUpdated(type, title) {
 }
 
 //listener on editor inputs
-$('body').on('change', '.editor input', function() {
+$('body').on('change', '.editor .form-control', function() {
 	//save reminder
 	if ( !$( "#saveReminder" ).length ) {
 		iziToast.info({
@@ -29,4 +29,11 @@ $('body').on('change', '.editor input', function() {
 $(function () {
 	//init tooltips
 	$('[data-toggle="tooltip"]').tooltip();
+
+	$("[name='live']").bootstrapSwitch({
+		onText: 'Yes',
+		offText: 'No',
+		labelText: 'Live',
+		size: 'small'
+	});
 });

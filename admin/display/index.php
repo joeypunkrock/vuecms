@@ -13,14 +13,14 @@ get_sideNav();
 
 			<ul class="list-group checked-list-box">
 			  <li class="list-group-item" 
-			  	v-for="todo in todos"
-			  	v-bind:check="todo.checked"
-			  	:key="todo.id">
+			  	v-for="task in tasks"
+			  	v-bind:check="task.taskChecked"
+			  	:key="task.taskId">
 			  		<i class="fa fa-fw" 
-			  			v-on:click="upd_checked(todo)"
-			  			v-bind:class="[todo.checked == 1 ? 'fa-check-square-o' : 'fa-square-o']">
+			  			v-on:click="updChecked(task)"
+			  			v-bind:class="[task.taskChecked == 1 ? 'fa-check-square-o' : 'fa-square-o']">
 			  		</i>
-			  		<input type="text" class="list-group-input" v-model="todo._text" v-on:change="upd_text(todo)">
+			  		<input type="text" class="list-group-input" v-model="task.taskText" v-on:change="updText(task)">
 				</li>
 			</ul>
 

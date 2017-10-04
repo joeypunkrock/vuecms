@@ -11,8 +11,11 @@
   "dependencies": {
     "axios": "^0.16.2",
     "bootstrap": "^4.0.0-beta",
+    "bootstrap-switch": "^3.3.4",
     "izitoast": "^1.1.5",
     "jquery": "^3.2.1",
+    "sweetalert": "^2.0.5",
     "vue": "^2.4.4"
-  }
+  },
+  "devDependencies": {}
 }

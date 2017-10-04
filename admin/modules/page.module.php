@@ -40,29 +40,47 @@ if (isset($_POST['getPages'])) {
 }
 
 /*
-*  @Update page info
+*  @Update page
 */
 if (isset($_POST['updPage'])) {
 	global	$conn;
 
 	$data = $_POST['updPage'];
 
-	//set vars from data
+	// set vars from data
 	$pageId = isset($data['pageId']) ? $data['pageId'] : '';
-	$pageName = isset($data['pageName']) ? $data['pageName'] : '';
-	$pageUrl = isset($data['pageUrl']) ? $data['pageUrl'] : '';
 
-	//update task info in DB
-	$sql = "UPDATE tblPages
-			SET pageName = '$pageName' ,
-				pageUrl = '$pageUrl'
-			WHERE pageId = '$pageId'
-			";
+	$set = "
+		SET pageName = '". mysqli_real_escape_string($conn, $data['pageName']) ."',
+			pageUrl = '". mysqli_real_escape_string($conn, $data['pageUrl']) ."',
+			pageHeading = '". mysqli_real_escape_string($conn, $data['pageHeading']) ."',
+			pageContent = '". mysqli_real_escape_string($conn, $data['pageContent']) ."'
+	";
+
+	if ($pageId != '') {
+		// update pasge info in DB
+		$sql = "UPDATE tblPages
+				$set
+				WHERE pageId = '$pageId'
+				";
+	} else {
+		// add in DB
+		$sql = "INSERT INTO tblPages
+				$set
+				";
+	}
     $updPage = mysqli_query($conn,$sql);
 	mysqli_close($conn);
 
-    echo json_encode($pageName);
-	exit();
+	// send back data
+	if (!$updPage) {
+		echo json_encode(mysqli_error($conn));
+		exit();
+	} else {
+	    echo json_encode($data['pageName']);
+		exit();
+	}
+
 }
 
 ?>
@@ -102,20 +120,25 @@ if (isset($_POST['updPage'])) {
     		    const pageInfo = {
     		    	pageId: page.pageId,
     		    	pageName: page.pageName,
-    		    	pageUrl: page.pageUrl
+    		    	pageUrl: page.pageUrl,
+    		    	pageHeading: page.pageHeading,
+    		    	pageContent: page.pageContent
     		    };
-
-    		    //console.log(pageInfo);
 
 	    	    // post request
 	    		axios.post(module+'page.module.php', { updPage: pageInfo })
 	    			.then(response => {
-	    				moduleUpdated('Page', response.data);
+	    				// check for sql error responses
+	    				if (response.data.indexOf("error") >= 0 || response.data.indexOf("warning")  >= 0) {
+	    					swal('Oops!', response.data, 'error');
+	    				} else {
+	    					moduleUpdated('Page', response.data);
+	    					//console.log(response.data);
+	    				}
 	    			})
 	    			.catch(error => {
 	    				this.errors.push(error);
-	    				console.log('err');
-	    				console.log(response.data);
+	    				swal('Error!', response.data, 'error');
 	    			})
 
 			}

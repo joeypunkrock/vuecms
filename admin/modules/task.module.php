@@ -5,19 +5,19 @@ $_POST = json_decode(file_get_contents('php://input'), true);
 /*
 *  @get all tasks
 */
-if (isset($_POST['todos'])) {
+if (isset($_POST['tasks'])) {
 	global $conn;
 
-	$sql = "SELECT * FROM tbl_tasks";
+	$sql = "SELECT * FROM tblTasks";
 
-	if ($todos = mysqli_query($conn, $sql)) {
+	if ($tasks = mysqli_query($conn, $sql)) {
 
 		// fetch associative array
-		while ($row = mysqli_fetch_assoc($todos)) {
+		while ($row = mysqli_fetch_assoc($tasks)) {
 			$rows[] = $row;
 		}
 		// free result set
-		mysqli_free_result($todos);
+		mysqli_free_result($tasks);
 	}
 	mysqli_close($conn);
 
@@ -29,41 +29,41 @@ if (isset($_POST['todos'])) {
 }
 
 /*
-*  @Update todo check
+*  @Update task check
 */
-if (isset($_POST['upd_checked'])) {
+if (isset($_POST['updChecked'])) {
 	global	$conn;
 
-	$data = $_POST['upd_checked'];
+	$data = $_POST['updChecked'];
 
 	//set vars from data
-	$id = isset($data['id']) ? $data['id'] : '';
-	$checked = isset($data['checked']) ? $data['checked'] : '';
+	$taskId = isset($data['taskId']) ? $data['taskId'] : '';
+	$taskChecked = isset($data['taskChecked']) ? $data['taskChecked'] : '';
 
 	//update task info in DB
-	$sql = "UPDATE tbl_tasks SET checked = '$checked' WHERE id = '$id'";
-    $upd_checked = mysqli_query($conn,$sql);
+	$sql = "UPDATE tblTasks SET taskChecked = '$taskChecked' WHERE taskId = '$taskId'";
+    $updChecked = mysqli_query($conn,$sql);
 	mysqli_close($conn);
 
-    echo json_encode($sql);
+    echo json_encode($updChecked);
 	exit();
 }
 
 /*
-*  @Update todo text
+*  @Update task text
 */
-if (isset($_POST['upd_text'])) {
+if (isset($_POST['updText'])) {
 	global	$conn;
 
-	$data = $_POST['upd_text'];
+	$data = $_POST['updText'];
 
 	//set vars from data
-	$id = isset($data['id']) ? $data['id'] : '';
-	$text = isset($data['text']) ? $data['text'] : '';
+	$taskId = isset($data['taskId']) ? $data['taskId'] : '';
+	$taskText = isset($data['taskText']) ? $data['taskText'] : '';
 
 	//update task info in DB
-	$sql = "UPDATE tbl_tasks SET _text = '$text' WHERE id = '$id'";
-    $upd_text = mysqli_query($conn,$sql);
+	$sql = "UPDATE tblTasks SET taskText = '$taskText' WHERE taskId = '$taskId'";
+    $updText = mysqli_query($conn,$sql);
 	mysqli_close($conn);
     //mysqli_free_result($upd_text);
 
@@ -76,28 +76,28 @@ if (isset($_POST['upd_text'])) {
 
 <script>
 
-	// TODO - merge two method functions for todo update into one
+	// task - merge two method functions for task update into one
 	// checking for change, and updating value if changed.
 	// look at vue watch method possibly will do it.
 
 	const tasks = new Vue({
 		el: '#tasks',
 		data: {
-			todos: []
+			tasks: []
 		},
 		// watch: {
-		// 	todos: {
+		// 	tasks: {
 		// 		handler: function (val, oldVal) {
 		// 			console.log(val + '' + oldVal);
 		// 		},
 		// 		deep: true
 		// 	}
 		// },
-		// get todos on creation
+		// get tasks on creation
 		created() {
-			axios.post(module+'task.module.php', { todos: this.todos })
+			axios.post(module+'task.module.php', { tasks: this.tasks })
 				.then(response => {
-					this.todos = response.data;
+					this.tasks = response.data;
 					console.log(response.data);
 				})
 				.catch(error => {
@@ -106,19 +106,19 @@ if (isset($_POST['upd_text'])) {
 				})
 		},
 		methods: {
-			// update todo check
-		    upd_checked: function (todo) {
+			// update task check
+		    updChecked: function (task) {
 
 		    	// ternary true/false switch
-		    	this.todo = todo.checked == 1 ? this.todo = todo.checked = 0 : this.todo = todo.checked = 1;
+		    	this.task = task.taskChecked == 1 ? this.task = task.taskChecked = 0 : this.task = task.taskChecked = 1;
 
 		    	// create object of constants
-			    const todo_info = {
-			    	id: this.todo = todo.id,
-			        checked: this.todo = todo.checked
+			    const taskInfo = {
+			    	taskId: this.task = task.taskId,
+			        taskChecked: this.task = task.taskChecked
 			    };
 
-				axios.post(module+'task.module.php', { upd_checked: todo_info })
+				axios.post(module+'task.module.php', { updChecked: taskInfo })
 				    .then(response => {
 				        console.log(response.data);
 				        moduleUpdated('Task', '');
@@ -128,16 +128,16 @@ if (isset($_POST['upd_text'])) {
 				        console.log(error.message);
 				    });
 			},
-			// update todo text
-		    upd_text: function (todo) {
+			// update task text
+		    updText: function (task) {
 
 		    	// create object of constants
-			    const todo_info = {
-			    	id: this.todo = todo.id,
-			        text: this.todo = todo._text
+			    const taskInfo = {
+			    	taskId: this.task = task.taskId,
+			        taskText: this.task = task.taskText
 			    };
 
-				axios.post(module+'task.module.php', { upd_text: todo_info })
+				axios.post(module+'task.module.php', { updText: taskInfo })
 				    .then(response => {
 				        console.log(response.data);
 				        moduleUpdated('Task', '');

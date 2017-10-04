@@ -32,7 +32,15 @@ function get_header() {
 		<!-- izitoast -->
 		<link rel="stylesheet" href="/admin/node_modules/izitoast/dist/css/izitoast.min.css">
 
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-notify/0.2.0/css/bootstrap-notify.min.css" integrity="sha256-xs2k744k81ISIOyl14txiKpaRncakLx29JiAve4063w=" crossorigin="anonymous" />
+		<!-- bootstrap switch -->
+		<link rel="stylesheet" href="/admin/node_modules/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.min.css">
+
+		<script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
+		<script>
+			tinymce.init({
+			selector: '.tinymce'
+			});
+		</script>
 
 		<!-- app -->
 		<link rel="stylesheet" href="/admin/resources/css/app.css">
@@ -100,22 +108,23 @@ function get_sideNav() { ?>
 function get_publish_settings() { ?>
 
 	<div class="card page-edit-card">
-		<div class="card-body">
+		<div class="card-body text-center">
 
-			<h6 class="text-center">Publish Settings</h6>
+			<h6>Publish Settings</h6>
 			<hr>
 
 			<button 
 				type="submit" 
-				class="btn btn-info btn-block btn-sm" 
+				class="btn btn-info btn-block btn-sm mb-2"
+				name="submit"
 				id="submit">Save
 			</button>
-			
-			<div class="mb-4"></div>
 
+			<input type="checkbox" name="live" id="live" v-model="pages.live">
+		
 			<button 
 				type="button" 
-				class="btn btn-outline-danger btn-block btn-sm"
+				class="btn btn-outline-danger btn-block btn-sm mt-4"
 				data-toggle="modal"
 				data-target="#confirm_delete_modal">Delete
 			</button>
@@ -176,9 +185,15 @@ function get_footer() { ?>
 		<!-- izitoast -->
 		<script src="/admin/node_modules/izitoast/dist/js/izitoast.min.js"></script>
 
+		<!-- sweetalert -->
+		<script src="/admin/node_modules/sweetalert/dist/sweetalert.min.js"></script>
+
 		<!-- bootstrap -->
 		<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script> -->
 		<script src="/admin/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+		<!-- bootstrap Switch -->
+		<script src="/admin/node_modules/bootstrap-switch/dist/js/bootstrap-switch.min.js"></script>
 
 	 	<script src="/admin/app.js"></script>
 
