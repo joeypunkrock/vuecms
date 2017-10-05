@@ -35,12 +35,12 @@ function get_header() {
 		<!-- bootstrap switch -->
 		<link rel="stylesheet" href="/admin/node_modules/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.min.css">
 
-		<script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
+<!-- 		<script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
 		<script>
 			tinymce.init({
 			selector: '.tinymce'
 			});
-		</script>
+		</script> -->
 
 		<!-- app -->
 		<link rel="stylesheet" href="/admin/resources/css/app.css">
@@ -105,7 +105,7 @@ function get_sideNav() { ?>
 
 <?php }
 
-function get_publish_settings() { ?>
+function get_publishSettings() { ?>
 
 	<div class="card page-edit-card">
 		<div class="card-body text-center">
@@ -125,8 +125,7 @@ function get_publish_settings() { ?>
 			<button 
 				type="button" 
 				class="btn btn-outline-danger btn-block btn-sm mt-4"
-				data-toggle="modal"
-				data-target="#confirm_delete_modal">Delete
+				v-on:click="delElem(pages)">Delete
 			</button>
 
 		</div>
@@ -139,26 +138,6 @@ function get_footer() { ?>
 				</div> <!-- /main-panel -->
 			</div> <!-- /row -->
 		</div> <!-- container-fluid -->
-
-		<div class="modal fade" id="confirm_delete_modal" tabindex="-1" role="dialog" aria-labelledby="confirm_delete_modal_label" aria-hidden="true">
-		  <div class="modal-dialog modal-sm" role="document">
-		    <div class="modal-content text-center">
-		      <div class="modal-header">
-		        <h5 class="modal-title" id="confirm_delete_modal_label"><strong>DELETE PAGE</strong></h5>
-		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-		          <span aria-hidden="true">&times;</span>
-		        </button>
-		      </div>
-		      <div class="modal-body">
-		        This action cannot be undone. <br> Are you sure you want to delete?
-		      </div>
-		      <div class="modal-footer">
-		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Go Back</button>
-		        <button type="button" class="btn btn-outline-danger">Confirm Delete</button>
-		      </div>
-		    </div>
-		  </div>
-		</div>
 
 		<!-- jQuery -->
 		<!-- <script

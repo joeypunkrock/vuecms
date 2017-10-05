@@ -1,6 +1,14 @@
-var saveReminder = document.querySelector('#saveReminder');
+// settings
+const	deleteWarningTitle = 'Are you sure?',
+		deleteWarningText = 'You won\'t be able to revert this!',
+		deletedTitle = 'Deleted!',
+		deletedText = /* elemName + */ ' has been deleted!',
+		createdTitle = /* elem + */ " created!",
+		createdText = /* elemName + */ " was added successfully!";
 
-//update success alert
+const saveReminder = document.querySelector('#saveReminder');
+
+// update success alert
 function moduleUpdated(type, title) {
 	iziToast.success({
         id: 'success',
@@ -11,9 +19,9 @@ function moduleUpdated(type, title) {
     });
 }
 
-//listener on editor inputs
+// listener on editor inputs
 $('body').on('change', '.editor .form-control', function() {
-	//save reminder
+	// save reminder
 	if ( !$( "#saveReminder" ).length ) {
 		iziToast.info({
 	        id: 'saveReminder',
@@ -27,7 +35,7 @@ $('body').on('change', '.editor .form-control', function() {
 });
 
 $(function () {
-	//init tooltips
+	// init tooltips
 	$('[data-toggle="tooltip"]').tooltip();
 
 	$("[name='live']").bootstrapSwitch({
@@ -37,3 +45,5 @@ $(function () {
 		size: 'small'
 	});
 });
+
+

@@ -9,7 +9,7 @@ $pageId = isset($_GET['pageId']) ? $_GET['pageId'] : '';
 
 <main class="col-sm-9 ml-sm-auto col-md-10 pt-3" id="page">
 
-	<?php if($action == 'edit' || $action == 'add') { ?>
+	<?php if($action == 'upd') { ?>
 
 		<form class="editor" v-on:submit.prevent="updPage(pages)">
 
@@ -19,7 +19,7 @@ $pageId = isset($_GET['pageId']) ? $_GET['pageId'] : '';
 					<div class="card page-edit-card" data-page_id="<?php echo $pageId ?>">
 						<div class="card-body">
 							
-							<h4><?php echo ucfirst($action); ?> {{pages.pageName}} page</h4>
+							<h4><?php if ( $pageId != '') { echo 'Edit'; } else { echo 'Add'; } ?> {{pages.pageName}} page</h4>
 
 							<div class="form-row pt-2">
 
@@ -63,7 +63,7 @@ $pageId = isset($_GET['pageId']) ? $_GET['pageId'] : '';
 
 				<div class="col-md-2">
 
-					<?php get_publish_settings(); ?>
+					<?php get_publishSettings(); ?>
 
 				</div>
 			</div>
@@ -75,7 +75,7 @@ $pageId = isset($_GET['pageId']) ? $_GET['pageId'] : '';
 	<div class="card">
 		<div class="card-body">
 			
-			<h4 class="card-title">Pages <a class="btn btn-outline-primary btn-sm ml-2" href="?action=add">Add New</a></h4>
+			<h4 class="card-title">Pages <a class="btn btn-outline-primary btn-sm ml-2" href="?action=upd">Add New</a></h4>
 
 			<ul class="list-group">
 			  <li class="list-group-item" v-for="page in pages" :key="page.pageId">
@@ -87,10 +87,10 @@ $pageId = isset($_GET['pageId']) ? $_GET['pageId'] : '';
 					    <span class="nav-link" data-toggle="tooltip" data-placement="top" title="Edit Url">http://www.website.com/<input type="text" class="list-group-input" v-model="page.pageUrl" v-on:change="updPage(page)"></span>
 					  </li>
 					  <li class="nav-item">
-					    <a class="nav-link" v-bind:href="'?pageId=' + page.pageId + '&action=edit'" data-toggle="tooltip" data-placement="top" title="Edit Page"><i class="fa fa-fw fa-pencil-square-o"><span class="sr-only">Edit Page</span></i></a>
+					    <a class="nav-link" v-bind:href="'?pageId=' + page.pageId + '&action=upd'" data-toggle="tooltip" data-placement="top" title="Edit Page"><i class="fa fa-fw fa-pencil-square-o"><span class="sr-only">Edit Page</span></i></a>
 					  </li>
 					  <li class="nav-item">
-					    <button type="button" class="nav-link btn btn-link" data-toggle="tooltip" data-placement="top" title="Delete Page"><i class="fa fa-fw fa-times" data-toggle="modal" data-target="#confirm_delete_modal"><span class="sr-only">Delete Page</span></i></button>
+					    <button type="button" class="nav-link btn btn-link" data-toggle="tooltip" data-placement="top" title="Delete Page"><i class="fa fa-fw fa-times" data-toggle="modal" data-target="#confirm_delete_modal" v-on:click="delElem(pages)"><span class="sr-only">Delete Page</span></i></button>
 					  </li>
 					</ul>
 				</li>
