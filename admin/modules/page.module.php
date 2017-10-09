@@ -11,30 +11,50 @@ if (isset($_POST['getPages'])) {
 	$elemId = isset($_POST['getPages']) ? $_POST['getPages'] : '';
 
 	// if we have a page id select the single page data. Else get all pages
-	if($elemId != '') {
+	if($elemId != '') { //single
 		$sql = "SELECT * FROM tblPages WHERE pageId = '$elemId'";
-	} else {
-		$sql = "SELECT * FROM tblPages";
+	} else { //multiple
+		$sql = "SELECT * FROM tblPages"; // get all pages
+		$sqlLive = "SELECT * FROM tblPages WHERE live = 1"; // get all live pages
 	}
 
-	// get data
 	if ($getPages = mysqli_query($conn, $sql)) {
 
 		if($elemId != '') { // single
 			$rows = mysqli_fetch_assoc($getPages);
 		} else { // multiple
+
+			// get all data
 			while ($row = mysqli_fetch_assoc($getPages)) {
 				$rows[] = $row;
 			}
-		}
+			$createdCount = mysqli_num_rows($getPages);
 
+			// get live data
+			if ($getLivePages = mysqli_query($conn, $sqlLive)) {
+				$liveCount = mysqli_num_rows($getLivePages);
+				// free result set
+				mysqli_free_result($getLivePages);
+			}
+
+		}
 		// free result set
 		mysqli_free_result($getPages);
 	}
+
 	mysqli_close($conn);
 
+	if($elemId != '') { //single
+		$response = array( 'rows' => $rows );
+	} else { //multiple
+		$response = array( 
+			'rows' => $rows, 
+			'createdCount' => "$createdCount", 
+			'liveCount' => "$liveCount" 
+		);
+	}
 	// return data
-	echo json_encode($rows);
+	echo json_encode($response);
 	exit();
 }
 
@@ -114,7 +134,9 @@ if (isset($_POST['delPage'])) {
 	const pages = new Vue({
 		el: '#page',
 		data: {
-			pages: {} // object array of data
+			pages: [], // object array of data
+			createdCount: {},
+			liveCount: {}
 		},
 		// get all pages after DOM render
 		mounted() {
@@ -124,7 +146,9 @@ if (isset($_POST['delPage'])) {
 		    // post request
 			axios.post(module+'page.module.php', { getPages: pageId })
 				.then(response => {
-					this.pages = response.data;
+					this.pages = response.data.rows;
+					this.createdCount = response.data.createdCount;
+					this.liveCount = response.data.liveCount;
 					console.log(response.data);
 				})
 				.catch(error => {
@@ -170,7 +194,7 @@ if (isset($_POST['delPage'])) {
 			// delete page element
 		    delElem: function (page) {
 
-		    	console.log(page.pageId);
+		    	//console.log(page.pageId);
 
 		    	// warning message
 		    	swal({
@@ -183,7 +207,7 @@ if (isset($_POST['delPage'])) {
 		    	  confirmButtonText: 'Yes, delete it!'
 		    	}).then(function () {
 
-		    	    // post request
+		    	    // delete post request
 		    		axios.post(module+'page.module.php', { delPage: page.pageId })
 		    			.then(response => {
 							swal(deletedTitle, page.pageName+deletedText, 'error')
@@ -193,10 +217,10 @@ if (isset($_POST['delPage'])) {
 		    			})
 		    			.catch(error => {
 		    				this.errors.push(error);
-		    				swal('Error!', response.data, 'error');
+		    				swal('Error!', response.data, 'success');
 		    			})
 
-		    	})
+		    	}, function (dismiss) { })
 
 			}
 		}

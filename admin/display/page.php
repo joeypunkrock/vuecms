@@ -25,14 +25,14 @@ $pageId = isset($_GET['pageId']) ? $_GET['pageId'] : '';
 
 								<div class="form-group col-md-6">
 									<label for="pageName">Name</label>
-									<input type="text" class="form-control" name="pageName" id="pageName" v-model="pages.pageName">
+									<input type="text" class="form-control" name="pageName" id="pageName" v-model="pages.pageName" required>
 								</div>
 
 								<div class="form-group col-md-6">
 							    	<label for="pageUrl">Url</label>
 							      	<div class="input-group mb-2 mb-sm-0">
 							        	<div class="input-group-addon">www.website.com/</div>
-							        	<input type="text" class="form-control" name="pageUrl" id="pageUrl" v-model="pages.pageUrl">
+							        	<input type="text" class="form-control" name="pageUrl" id="pageUrl" v-model="pages.pageUrl" required>
 							    	</div>
 							    </div>
 
@@ -72,31 +72,66 @@ $pageId = isset($_GET['pageId']) ? $_GET['pageId'] : '';
 
 	<?php } else { ?>
 
-	<div class="card">
-		<div class="card-body">
-			
-			<h4 class="card-title">Pages <a class="btn btn-outline-primary btn-sm ml-2" href="?action=upd">Add New</a></h4>
+	<div class="row">
 
-			<ul class="list-group">
-			  <li class="list-group-item" v-for="page in pages" :key="page.pageId">
-					<ul class="nav">
-					  <li class="nav-item">
-					    <span class="nav-link pl-0" data-toggle="tooltip" data-placement="top" title="Edit Name"><input type="text" class="list-group-input" v-model="page.pageName" v-on:change="updPage(page)"></span>
-					  </li>
-					  <li class="nav-item">
-					    <span class="nav-link" data-toggle="tooltip" data-placement="top" title="Edit Url">http://www.website.com/<input type="text" class="list-group-input" v-model="page.pageUrl" v-on:change="updPage(page)"></span>
-					  </li>
-					  <li class="nav-item">
-					    <a class="nav-link" v-bind:href="'?pageId=' + page.pageId + '&action=upd'" data-toggle="tooltip" data-placement="top" title="Edit Page"><i class="fa fa-fw fa-pencil-square-o"><span class="sr-only">Edit Page</span></i></a>
-					  </li>
-					  <li class="nav-item">
-					    <button type="button" class="nav-link btn btn-link" data-toggle="tooltip" data-placement="top" title="Delete Page"><i class="fa fa-fw fa-times" data-toggle="modal" data-target="#confirm_delete_modal" v-on:click="delElem(pages)"><span class="sr-only">Delete Page</span></i></button>
-					  </li>
+		<div class="col-md-9">
+
+			<div class="card">
+				<div class="card-body">
+					
+					<h4 class="card-title">Pages <a class="btn btn-outline-primary btn-sm ml-2" href="?action=upd">Add New</a></h4>
+
+					<ul class="list-group">
+					  <li class="list-group-item" v-for="page in pages" :key="page.pageId">
+							<ul class="nav">
+							  <li class="nav-item">
+							    <span class="nav-link pl-0" data-toggle="tooltip" data-placement="top" title="Edit Name"><input type="text" class="list-group-input" v-model="page.pageName" v-on:change="updPage(page)"></span>
+							  </li>
+							  <li class="nav-item">
+							    <span class="nav-link" data-toggle="tooltip" data-placement="top" title="Edit Url">http://www.website.com/<input type="text" class="list-group-input" v-model="page.pageUrl" v-on:change="updPage(page)"></span>
+							  </li>
+							  <li class="nav-item">
+							    <a class="nav-link" v-bind:href="'?pageId=' + page.pageId + '&action=upd'" data-toggle="tooltip" data-placement="top" title="Edit Page"><i class="fa fa-fw fa-pencil-square-o"><span class="sr-only">Edit Page</span></i></a>
+							  </li>
+							  <li class="nav-item">
+							    <button type="button" class="nav-link btn btn-link" data-toggle="tooltip" data-placement="top" title="Delete Page"><i class="fa fa-fw fa-times" data-toggle="modal" data-target="#confirm_delete_modal" v-on:click="delElem(page)"><span class="sr-only">Delete Page</span></i></button>
+							  </li>
+							</ul>
+						</li>
 					</ul>
-				</li>
-			</ul>
+
+				</div>
+			</div>
 
 		</div>
+
+		<div class="col-md-3">
+
+			<div class="card">
+				<div class="card-body">
+					
+					<h5 class="card-title">Quick Stats</h5>
+
+					<ul class="list-group">
+						<li class="list-group-item">
+							<div class="d-flex justify-content-between">
+								<div class="p-1">Pages created:</div>
+								<div class="p-1">{{createdCount}}</div>
+							</div>
+						</li>
+						<li class="list-group-item">
+							<div class="d-flex justify-content-between">
+								<div class="p-1">Pages live:</div>
+								<div class="p-1">{{liveCount}}</div>
+							</div>
+						</li>
+					</ul>
+
+				</div>
+			</div>
+			
+		</div>
+
 	</div>
 
 	<?php } ?>

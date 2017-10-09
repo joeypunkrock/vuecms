@@ -11,6 +11,17 @@
 *		production
 */
 define("ENV", 'development');
+require_once('db-connect.php');
+
+//select site settings values
+$configSQL = "SELECT * FROM tblConfig";
+$configResult = mysqli_query($conn, $configSQL);
+$configArray = array();
+
+//assign settings into settingArray
+while ($row = mysqli_fetch_assoc($configResult)) {
+    $configArray[$row['confKey']] = $row['confVal'];
+}
 
 /*
 *	@Assign file paths to PHP constants
@@ -26,11 +37,11 @@ define("MAX_ATTEMPTS", 5);
 // timeout (in seconds) after max attempts are reached
 define("LOGIN_TIMEOUT", 300);
 
-require_once('db-connect.php');
+define("SITENAME", $configArray["siteName"]);
 
-define("SITENAME", 'Test Site');
-
-// email settings
-define("FROM_EMAIL", 'joeypunkrock11@gmail.com');
+// EMAIL SETTINGS
+// SEND TEST EMAILS THROUGH FORM TO https://www.mail-tester.com GENERATED ADDRESS FOR SPAM SCORE
+define("FROM_EMAIL", $configArray["fromEmail"]); // Webmaster email
+define("FROM_NAME", $configArray["fromName"]); // "From name" displayed on email
 
 ?>

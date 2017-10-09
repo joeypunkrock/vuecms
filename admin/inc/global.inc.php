@@ -66,7 +66,7 @@ function get_topNav() { ?>
 	<div class="top-nav clearfix" role="complementary">
 		<ul class="nav float-left">
 		  <li class="nav-item">
-		    <a class="nav-link" href="#">Dashboard</a>
+		    <a class="nav-link" href="#">Dashboard | <?php echo SITENAME; ?></a>
 		  </li>
 		  <li class="nav-item">
 		    <a class="nav-link" href="#"><i class="fa fa-bell" aria-hidden="true"></i><span class="sr-only">Notifcations</span> <span class="badge badge-secondary">6</span></a>
@@ -168,7 +168,7 @@ function get_footer() { ?>
 		<script src="/admin/node_modules/izitoast/dist/js/izitoast.min.js"></script>
 
 		<!-- sweetalert -->
-		<script src="/admin/node_modules/sweetalert/dist/sweetalert.min.js"></script>
+		<script src="/admin/node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
 
 		<!-- bootstrap -->
 		<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script> -->
