@@ -18,9 +18,59 @@ button {
   background-color: transparent;
 }
 
+.tooltip-inner {
+    color: $white;
+    background-color: $black;
+}
+.tooltip .arrow {
+    visibility: hidden;
+}
+
 .main-panel {
-    background: rgba(203, 203, 210, 0.15);
+    background: $porcelain;
     min-height: 100vh;
+}
+
+.top-nav {
+  border-bottom: solid 1px #d4d4d4;
+  background-color: $white;
+  padding-right: 5px;
+}
+
+.sidebar {
+    position: fixed;
+    top: 40px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border-right: 1px solid #eee;
+    //background-image: url('/resources/img/sidebar-bg-attain.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-color: #32323A;
+    .nav-link {
+      color: $white;
+      border-radius: 0;
+      padding: 0.7rem 1.5rem;
+      font-size: 0.8em;
+      border-bottom: solid 1px #414141;
+      &.active,
+      &:hover,
+      &:focus {
+        background-color: #28292E;
+        color: $primary-color;
+      }
+      &::after {
+          position: absolute;
+          content: '\f054';
+          font-family: FontAwesome;
+          right: 1em;
+          color: #717171;
+      }
+    }
 }
 
 .list-group.checked-list-box li {
@@ -30,49 +80,21 @@ button {
   .fa-fw {
     text-align: left;
   }
-  // &::before {
-  //   content: '';
-  //   display: inline-block;
-  //   vertical-align: sub;
-  //   width: 20px;
-  //   height: 20px;
-  //   border: solid 1px grey;
-  //   border-radius: 5px;
-  //   margin-right: 5px;
-  // }
 }
 
 .list-group-input {
     border: none;
+    color: $primary-color-alt;
     &:focus {
       outline: none;
-      color: #399fdb;
+      color: $primary-color;
     }
 }
 
-.sidebar {
-    position: fixed;
-    top: 40px;
-    bottom: 0;
-    left: 0;
-    z-index: 1000;
-    padding: 20px 0;
-    overflow-x: hidden;
-    overflow-y: auto;
-    border-right: 1px solid #eee;
-    //background-image: url('/resources/img/sidebar-bg-attain.jpg');
-    background-position: center center;
-    background-size: cover;
-    background-color: #399fdb;
-    .nav-link {
-      color: #ffffff;
-      &.active {
-        background-color: rgba(255, 255, 255, 0.15);
-      }
-    }
-}
+//cards
 
 .card {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.08);
   .image {
     width: 100%;
     overflow: hidden;

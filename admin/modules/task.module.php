@@ -1,5 +1,5 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] . '/settings.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/config.php');
 $_POST = json_decode(file_get_contents('php://input'), true);
 
 /*

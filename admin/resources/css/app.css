@@ -2,7 +2,7 @@
 body, h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, .btn-simple, .alert, a, .td-name, td, button.close {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  font-family: "Roboto","Helvetica Neue",Arial,sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-weight: 200; }
 
 /* line 1, ../scss/breakpoints/_base.scss */
@@ -26,106 +26,137 @@ button {
   background-color: transparent; }
 
 /* line 21, ../scss/breakpoints/_base.scss */
+.tooltip-inner {
+  color: #F9F9F9;
+  background-color: #1C1C1C; }
+
+/* line 25, ../scss/breakpoints/_base.scss */
+.tooltip .arrow {
+  visibility: hidden; }
+
+/* line 29, ../scss/breakpoints/_base.scss */
 .main-panel {
-  background: rgba(203, 203, 210, 0.15);
+  background: #ECF0F1;
   min-height: 100vh; }
 
-/* line 27, ../scss/breakpoints/_base.scss */
-.list-group.checked-list-box li > i {
-  cursor: pointer; }
-/* line 30, ../scss/breakpoints/_base.scss */
-.list-group.checked-list-box li .fa-fw {
-  text-align: left; }
+/* line 34, ../scss/breakpoints/_base.scss */
+.top-nav {
+  border-bottom: solid 1px #d4d4d4;
+  background-color: #F9F9F9;
+  padding-right: 5px; }
 
-/* line 45, ../scss/breakpoints/_base.scss */
-.list-group-input {
-  border: none; }
-  /* line 47, ../scss/breakpoints/_base.scss */
-  .list-group-input:focus {
-    outline: none;
-    color: #399fdb; }
-
-/* line 53, ../scss/breakpoints/_base.scss */
+/* line 40, ../scss/breakpoints/_base.scss */
 .sidebar {
   position: fixed;
   top: 40px;
   bottom: 0;
   left: 0;
   z-index: 1000;
-  padding: 20px 0;
+  padding: 0;
   overflow-x: hidden;
   overflow-y: auto;
   border-right: 1px solid #eee;
   background-position: center center;
   background-size: cover;
-  background-color: #399fdb; }
-  /* line 67, ../scss/breakpoints/_base.scss */
+  background-color: #32323A; }
+  /* line 54, ../scss/breakpoints/_base.scss */
   .sidebar .nav-link {
-    color: #ffffff; }
-    /* line 69, ../scss/breakpoints/_base.scss */
-    .sidebar .nav-link.active {
-      background-color: rgba(255, 255, 255, 0.15); }
+    color: #F9F9F9;
+    border-radius: 0;
+    padding: 0.7rem 1.5rem;
+    font-size: 0.8em;
+    border-bottom: solid 1px #414141; }
+    /* line 60, ../scss/breakpoints/_base.scss */
+    .sidebar .nav-link.active, .sidebar .nav-link:hover, .sidebar .nav-link:focus {
+      background-color: #28292E;
+      color: #3498DB; }
+    /* line 66, ../scss/breakpoints/_base.scss */
+    .sidebar .nav-link::after {
+      position: absolute;
+      content: '\f054';
+      font-family: FontAwesome;
+      right: 1em;
+      color: #717171; }
 
-/* line 76, ../scss/breakpoints/_base.scss */
-.card .image {
-  width: 100%;
-  overflow: hidden;
-  height: 260px;
-  border-radius: 4px 4px 0 0;
-  position: relative;
-  -webkit-transform-style: preserve-3d;
-  -moz-transform-style: preserve-3d;
-  transform-style: preserve-3d; }
-  /* line 85, ../scss/breakpoints/_base.scss */
-  .card .image img {
-    width: 100%; }
-/* line 89, ../scss/breakpoints/_base.scss */
-.card .avatar {
-  width: 30px;
-  height: 30px;
-  overflow: hidden;
-  border-radius: 50%;
-  margin-right: 5px; }
+/* line 77, ../scss/breakpoints/_base.scss */
+.list-group.checked-list-box li > i {
+  cursor: pointer; }
+/* line 80, ../scss/breakpoints/_base.scss */
+.list-group.checked-list-box li .fa-fw {
+  text-align: left; }
+
+/* line 85, ../scss/breakpoints/_base.scss */
+.list-group-input {
+  border: none;
+  color: #2980B9; }
+  /* line 88, ../scss/breakpoints/_base.scss */
+  .list-group-input:focus {
+    outline: none;
+    color: #3498DB; }
+
 /* line 96, ../scss/breakpoints/_base.scss */
-.card .title {
-  margin: 0;
-  color: #333333;
-  font-weight: 300; }
-/* line 101, ../scss/breakpoints/_base.scss */
-.card .list-group {
-  margin: 1.25rem -1.25rem; }
-  /* line 103, ../scss/breakpoints/_base.scss */
-  .card .list-group .list-group-item {
-    border-left: 0;
-    border-right: 0; }
-    /* line 106, ../scss/breakpoints/_base.scss */
-    .card .list-group .list-group-item:first-child, .card .list-group .list-group-item:last-child {
-      border-radius: 0; }
+.card {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.08); }
+  /* line 98, ../scss/breakpoints/_base.scss */
+  .card .image {
+    width: 100%;
+    overflow: hidden;
+    height: 260px;
+    border-radius: 4px 4px 0 0;
+    position: relative;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d; }
+    /* line 107, ../scss/breakpoints/_base.scss */
+    .card .image img {
+      width: 100%; }
+  /* line 111, ../scss/breakpoints/_base.scss */
+  .card .avatar {
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-right: 5px; }
+  /* line 118, ../scss/breakpoints/_base.scss */
+  .card .title {
+    margin: 0;
+    color: #333333;
+    font-weight: 300; }
+  /* line 123, ../scss/breakpoints/_base.scss */
+  .card .list-group {
+    margin: 1.25rem -1.25rem; }
+    /* line 125, ../scss/breakpoints/_base.scss */
+    .card .list-group .list-group-item {
+      border-left: 0;
+      border-right: 0; }
+      /* line 128, ../scss/breakpoints/_base.scss */
+      .card .list-group .list-group-item:first-child, .card .list-group .list-group-item:last-child {
+        border-radius: 0; }
 
-/* line 115, ../scss/breakpoints/_base.scss */
+/* line 137, ../scss/breakpoints/_base.scss */
 .card-user h4.title {
   font-size: 1.2em; }
-/* line 118, ../scss/breakpoints/_base.scss */
+/* line 140, ../scss/breakpoints/_base.scss */
 .card-user .image {
   height: 110px; }
-  /* line 120, ../scss/breakpoints/_base.scss */
+  /* line 142, ../scss/breakpoints/_base.scss */
   .card-user .image img {
     margin-top: -25%; }
-/* line 124, ../scss/breakpoints/_base.scss */
+/* line 146, ../scss/breakpoints/_base.scss */
 .card-user .author {
   text-align: center;
   text-transform: none;
   margin-top: -70px; }
-/* line 129, ../scss/breakpoints/_base.scss */
+/* line 151, ../scss/breakpoints/_base.scss */
 .card-user .avatar {
   width: 124px;
   height: 124px;
   border: 5px solid #FFFFFF;
   position: relative;
   margin-bottom: 15px; }
-  /* line 135, ../scss/breakpoints/_base.scss */
+  /* line 157, ../scss/breakpoints/_base.scss */
   .card-user .avatar .border-gray {
     border-color: #EEEEEE; }
-/* line 139, ../scss/breakpoints/_base.scss */
+/* line 161, ../scss/breakpoints/_base.scss */
 .card-user .card-user .title {
   line-height: 24px; }

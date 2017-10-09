@@ -1,5 +1,5 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] . '/settings.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/config.php');
 
 // echo ('admin path: ' . ADMIN_PATH . '<br>');
 // echo ('project path: ' . PROJECT_PATH . '<br>');
@@ -17,6 +17,9 @@ function get_header() {
 	<head>
 		<meta charset="utf-8">
 		<title>Vue - <?php echo $page_title; ?></title>
+	
+		<!-- fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
 
 		<!-- bootstrap-vue -->
 <!-- 	<link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap@next/dist/css/bootstrap.min.css"/>
@@ -60,7 +63,7 @@ function get_header() {
 
 function get_topNav() { ?>
 
-	<div class="top-nav navbar-dark bg-dark clearfix" role="complementary">
+	<div class="top-nav clearfix" role="complementary">
 		<ul class="nav float-left">
 		  <li class="nav-item">
 		    <a class="nav-link" href="#">Dashboard</a>
@@ -74,10 +77,10 @@ function get_topNav() { ?>
 		</ul>
 		<ul class="nav float-right">
 			<li class="nav-item">
-			  <a class="nav-link" href="/users">profile</a>
+			  <a class="nav-link" href="/users" data-toggle="tooltip" data-placement="bottom" title="Profile"><i class="fa fa-user" aria-hidden="true"></i><span class="sr-only">Profile</span></a>
 			</li>
 			<li class="nav-item">
-			  <a class="nav-link" href="#">Log out</a>
+			  <a class="nav-link" href="#" data-toggle="tooltip" data-placement="bottom" title="Logout"><i class="fa fa-sign-out" aria-hidden="true"></i><span class="sr-only">Log Out</span></a>
 			</li>
 		</ul>
 	</div>
@@ -87,7 +90,7 @@ function get_topNav() { ?>
 function get_sideNav() { ?>
 
 	<div class="col-sm-3 col-md-2 d-none d-sm-block sidebar" role="navigation">
-		<ul class="nav nav-pills flex-column pl-4 pr-4">
+		<ul class="nav nav-pills flex-column">
 			<li class="nav-item">
 				<a class="nav-link active" href="/">Overview <span class="sr-only">(current)</span></a>
 			</li>
